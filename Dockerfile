@@ -24,4 +24,4 @@ COPY --from=development --chown=node:node /usr/src/app/node_modules/ ./node_modu
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "--trace-warnings", "dist/src/main"]
+CMD ["node", "--trace-warnings", "dist/main"]
