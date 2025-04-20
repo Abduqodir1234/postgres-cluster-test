@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  edo:
+    build: .
+    ports:
+      - '3037:3037'
+    env_file:
+      - .env
