@@ -1,0 +1,3 @@
+ nohup etcd --config-file ./etcd/etcd3.yml > ./tmp/etcd3.log &   
+ nohup etcd --config-file ./etcd/etcd2.yaml > ./tmp/etcd2.log &  
+ nohup etcd --config-file ./etcd/etcd1.yaml > ./tmp/etcd1.log

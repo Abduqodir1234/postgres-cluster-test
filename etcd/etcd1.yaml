@@ -1,0 +1,10 @@
+name: node1
+data-dir: ./data/etcd-node1
+listen-peer-urls: http://127.0.0.1:2380
+listen-client-urls: http://127.0.0.1:2379
+advertise-client-urls: http://127.0.0.1:2379
+initial-advertise-peer-urls: http://127.0.0.1:2380
+initial-cluster: node1=http://127.0.0.1:2380,node2=http://127.0.0.1:2382,node3=http://127.0.0.1:2384
+initial-cluster-state: new
+initial-cluster-token: etcd-cluster-1
+enable-v2: true

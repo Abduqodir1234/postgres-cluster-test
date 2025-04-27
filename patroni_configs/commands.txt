@@ -1,0 +1,4 @@
+nohup patroni ./patroni_configs/patroni1.yml > ./tmp/patroni1.log &
+nohup patroni ./patroni_configs/patroni2.yml > ./tmp/patroni2.log &
+nohup patroni ./patroni_configs/patroni3.yml > ./tmp/patroni3.log & 
+nohup patroni ./patroni_configs/patroni4.yml > ./tmp/patroni4.log & 

@@ -1,0 +1,46 @@
+scope: pg_cluster
+name: patroni1
+
+restapi:
+  listen: 127.0.0.1:8008
+  connect_address: 127.0.0.1:8008
+
+etcd:
+  hosts:
+    - "127.0.0.1:2379"
+    - "127.0.0.1:2381"
+    - "127.0.0.1:2383"
+  protocol: http
+
+postgresql:
+  listen: 127.0.0.1:5433
+  connect_address: 127.0.0.1:5433
+  data_dir: ./data/patroni
+  authentication:
+    replication:
+      username: replicator
+      password: replpassword
+    superuser:
+      username: postgres
+      password: newpassword
+  parameters:
+    max_connections: 100
+    shared_buffers: 1GB
+
+bootstrap:
+  dcs:
+    postgresql:
+      use_pg_rewind: true
+      parameters:
+        wal_level: replica
+        hot_standby: "on"
+    loop_wait: 10
+    retry_timeout: 10
+    ttl: 30
+    bootstrap:
+      leader: patroni1
+  initdb:
+    - encoding: UTF8
+  pg_hba:
+    - host replication replicator 127.0.0.1/32 md5
+    - host all all 127.0.0.1/32 md5

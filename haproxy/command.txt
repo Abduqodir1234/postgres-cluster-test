@@ -1,0 +1,1 @@
+nohup haproxy -f ./haproxy/haproxy.config > ./tmp/haproxy.log &   

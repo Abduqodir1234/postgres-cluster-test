@@ -1,0 +1,25 @@
+scope: pg_cluster
+name: patroni2
+
+restapi:
+  listen: 127.0.0.1:8009
+  connect_address: 127.0.0.1:8009
+
+etcd:
+  hosts:
+    - "127.0.0.1:2379"
+    - "127.0.0.1:2381"
+    - "127.0.0.1:2383"
+  protocol: http
+
+postgresql:
+  listen: 127.0.0.1:5434
+  connect_address: 127.0.0.1:5434
+  data_dir: ./data/patroni2
+  authentication:
+    replication:
+      username: replicator
+      password: replpassword
+    superuser:
+      username: postgres
+      password: newpassword
